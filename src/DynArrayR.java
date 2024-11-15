@@ -1,6 +1,6 @@
 package src;
 
-public class DynArray<T> extends DynArrayAbs<T> {
+public class DynArrayR<T> extends DynArrayAbs<T> {
 
     private int appendStatus;
     private int getItemStatus;
