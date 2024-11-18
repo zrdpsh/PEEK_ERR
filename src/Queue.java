@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package src;
 
 import java.util.LinkedList;
@@ -68,7 +68,4 @@ public class Queue<T> extends QueueAbs<T> {
     public int get_dequeue_status() {
         return dequeueStatus;
     }
-=======
-public abstract class Queue<T> {
->>>>>>> origin/main
-}
+
