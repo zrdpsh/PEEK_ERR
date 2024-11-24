@@ -1,6 +1,18 @@
 package src;
 
 public abstract class HashTableAbs {
+
+    public final int PUT_STATUS_NIL = 0;
+    public final int PUT_STATUS_OK = 1;
+    public final int PUT_STATUS_ERR = 2;
+
+    public final int REMOVE_STATUS_NIL = 0;
+    public final int REMOVE_STATUS_OK = 1;
+    public final int REMOVE_STATUS_ERR = 2;
+
+    public final int CHECK_STATUS_NIL = 0;
+    public final int CHECK_STATUS_OK = 1;
+
     public int size;
     public int step;
     public String[] slots;
