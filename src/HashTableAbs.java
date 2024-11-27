@@ -17,6 +17,7 @@ public abstract class HashTableAbs {
     public int step;
     public String[] slots;
 
+    // CONSTRUCTOR:
     public HashTableAbs(int size) {
         this.size = size;
     }
