@@ -23,19 +23,28 @@ public abstract class HashTableAbs {
     }
     // POST: hash table with the given size is created
 
+    public HashTableAbs() {
+    }
 
     //COMMANDS:
+
+    // PRE: there are empty slots in the hash table
     public abstract void put(String value);
     // POST: given value is added to the hash table
 
+    // PRE: there is an element with the given value
     public abstract void remove(String value);
     // POST: there is no element with given value
 
-    public abstract boolean checkElement(String value);
+    public abstract boolean isExist(String value);
+
+
 
 
     // REQUESTS:
-    public abstract int get_remove_status();
-    public abstract int get_put_status();
-    public abstract int get_checkElement_status();
+
+    public abstract int size();
+    public abstract int get_remove_status(); // didn't evoked yet; evoked succesfully; doesn't removed
+    public abstract int get_put_status(); // didn't evoked yet; evoked succesfully; evoked with error
+    public abstract int get_checkElement_status(); // didn't evoked yet; evoked succesfully;
 }

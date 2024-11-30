@@ -13,7 +13,9 @@ public class HashTable extends HashTableAbs {
     private int checkElementStatus;
 
 
-    public HashTable(int size) {
+
+
+    HashTable(int size) {
         super(size);
 
         putStatus = PUT_STATUS_NIL;
@@ -90,6 +92,7 @@ public class HashTable extends HashTableAbs {
         if (i != -1) {
             slots[i] = value;
             putStatus = PUT_STATUS_OK;
+            return;
         }
         putStatus = PUT_STATUS_ERR;
     }
@@ -107,10 +110,15 @@ public class HashTable extends HashTableAbs {
     }
 
     @Override
-    public boolean checkElement(String value) {
+    public boolean isExist(String value) {
         int foundIndex = find(value);
         checkElementStatus = CHECK_STATUS_OK;
         return foundIndex != -1;
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 
 
