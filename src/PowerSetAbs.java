@@ -2,10 +2,13 @@ package src;
 
 public abstract class PowerSetAbs extends HashTableAbs {
 
+    public PowerSetAbs() {};
+    // POST: new empty set of default size is created
+
     public PowerSetAbs(int size) {
         super(size);
     }
-    // POST: new empty set of given size is created
+
 
     //COMMANDS:
     @Override

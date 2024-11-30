@@ -1,6 +1,6 @@
 package src;
 
-public class PowerSet
+public class PowerSet extends PowerSetAbs
 {
     private final int DEFAULT_SIZE = 20000;
 
@@ -9,6 +9,10 @@ public class PowerSet
 
     private String[] slots;
     private int step = 3;
+
+    private int putStatus;
+    private int removeStatus;
+    private int checkElementStatus;
 
 
 
@@ -91,7 +95,7 @@ public class PowerSet
 
     public void put(String value)
     {
-        if (this.get(value)) return;
+        if (this.isExist(value)) return;
 
         int i;
         i = seekSlot(value);
@@ -101,7 +105,7 @@ public class PowerSet
         }
     }
 
-    public boolean get(String value)
+    public boolean isExist(String value)
     {
         int i = hashFun(value);
         if(value.equals(slots[i])) return true;
@@ -112,22 +116,24 @@ public class PowerSet
         return false;
     }
 
-    public boolean remove(String value)
+    public void remove(String value)
     {
         int i = hashFun(value);
         if(value.equals(slots[i])) {
             slots[i] = null;
             size--;
-            return true;
+            removeStatus = REMOVE_STATUS_OK;
+            return;
         }
 
         for (i = 0; i < ss; i++)
             if(value.equals(slots[i])) {
                 slots[i] = null;
                 size--;
-                return true;
+                removeStatus = REMOVE_STATUS_OK;
+                return;
             }
-        return false;
+        removeStatus = REMOVE_STATUS_ERR;
     }
 
     public PowerSet intersection(PowerSet set2)
@@ -136,7 +142,7 @@ public class PowerSet
         String[] sStr = this.getContents();
 
         for (int i = 0; i < size; i++) {
-            if (set2.get(sStr[i])) res.put(sStr[i]);
+            if (set2.isExist(sStr[i])) res.put(sStr[i]);
         }
 
         return res;
@@ -160,7 +166,7 @@ public class PowerSet
         String[] sStr = this.getContents();
 
         for (int i = 0; i < sStr.length; i++) {
-            if (!(set2.get(sStr[i]))) res.put(sStr[i]);
+            if (!(set2.isExist(sStr[i]))) res.put(sStr[i]);
         }
 
         return res;
@@ -171,9 +177,24 @@ public class PowerSet
         String[] s2 = set2.getContents();
 
         for (int i = 0; i < set2.size(); i++) {
-            if (!this.get(s2[i])) return false;
+            if (!this.isExist(s2[i])) return false;
         }
         return true;
+    }
+
+    @Override
+    public int get_remove_status() {
+        return removeStatus;
+    }
+
+    @Override
+    public int get_put_status() {
+        return putStatus;
+    }
+
+    @Override
+    public int get_isExist_status() {
+        return checkElementStatus;
     }
 
 }
