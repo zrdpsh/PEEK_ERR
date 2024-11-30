@@ -2,12 +2,24 @@ package src;
 
 public class PowerSet
 {
+    private final int DEFAULT_SIZE = 20000;
+
     public int ss;
     private int size;
 
     private String[] slots;
     private int step = 3;
 
+
+
+    public PowerSet()
+    {
+        ss = DEFAULT_SIZE;
+        slots = new String[ss];
+        size = 0;
+        for (int i = 0; i < ss; i++) slots[i] = null;
+
+    }
 
     public PowerSet(int sizeOf)
     {
