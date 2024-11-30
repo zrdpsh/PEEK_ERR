@@ -142,7 +142,7 @@ public class HashTable extends HashTableAbs {
     }
 
     @Override
-    public int get_checkElement_status() {
+    public int get_isExist_status() {
         return checkElementStatus;
     }
 

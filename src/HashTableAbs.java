@@ -46,5 +46,5 @@ public abstract class HashTableAbs {
     public abstract int size();
     public abstract int get_remove_status(); // didn't evoked yet; evoked succesfully; doesn't removed
     public abstract int get_put_status(); // didn't evoked yet; evoked succesfully; evoked with error
-    public abstract int get_checkElement_status(); // didn't evoked yet; evoked succesfully;
+    public abstract int get_isExist_status(); // didn't evoked yet; evoked succesfully;
 }
