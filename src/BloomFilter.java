@@ -47,7 +47,8 @@ public class BloomFilter extends BloomFilterAbs
 
         putStatus = PUT_STATUS_OK;
     }
-
+    
+    @Override
     public boolean checkElement(String str1)
     {
         int i1 = hash1(str1);
